@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "667093083315",
+    "firebase_url": "https://unehorario.firebaseio.com",
+    "project_id": "unehorario",
+    "storage_bucket": "unehorario.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667093083315:android:70e8d6d5e35099cf",
+        "android_client_info": {
+          "package_name": "uneatlantico.unehorario"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "667093083315-r5uk4oufo5kng8qvjs36u6l4p3r4r1fi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uneatlantico.unehorario",
+            "certificate_hash": "d993d1ead9a31cbe741f3fa41156b1eae7043e3c"
+          }
+        },
+        {
+          "client_id": "667093083315-c5kkri2dahvtm0a3tcf745lti9mhoqub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_ItPBkl-BAg7KCnlzcEJC7Wu0Gqeg9G4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "667093083315-c5kkri2dahvtm0a3tcf745lti9mhoqub.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
