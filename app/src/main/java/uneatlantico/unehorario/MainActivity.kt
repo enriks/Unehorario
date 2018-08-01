@@ -14,6 +14,7 @@ import java.util.*
 import com.google.firebase.auth.FirebaseAuth
 import com.firebase.ui.auth.IdpResponse
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.support.annotation.RequiresApi
 import android.widget.*
@@ -85,6 +86,10 @@ class MainActivity : AppCompatActivity() {
                 val user = FirebaseAuth.getInstance().currentUser
                 if (user != null) {
                     Log.d("usuario",user.email.toString())
+                    Tool.CORREO=user.email.toString()
+                    Tool.IMAGEN=user.photoUrl.toString()
+                    Tool.NOMBRE=user.displayName.toString()
+
                     val separated=user.email.toString().split("@".toRegex())
                     Tool.USUARIO = separated[0]
 

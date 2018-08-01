@@ -5,6 +5,8 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.graphics.Bitmap
+import android.media.Image
 import android.os.Build
 import android.support.annotation.RequiresApi
 import android.util.Log
@@ -28,9 +30,11 @@ class Tool() {
         val DB_NAME = "unehorario.db"
         var USUARIO = ""
         val DB_VERSION = 1
+        var CORREO = ""
         //val instance by lazy { SqliteHandler(App.instace)}
         var ITEMS = ArrayList<Eventos>()
-
+        var IMAGEN = ""
+        var NOMBRE = ""
     }
 
 

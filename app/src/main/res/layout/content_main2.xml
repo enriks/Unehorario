@@ -4,15 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/drawer_layout2"
-    tools:context=".MainActivity">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".DiaListActivity"
+    tools:showIn="@layout/app_bar_main2">
 
-
-<ImageView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:src="@drawable/helmetdoggo"
-    android:adjustViewBounds="true"
-    android:scaleType="centerCrop"
-    android:contentDescription="@string/todo" />
 </android.support.constraint.ConstraintLayout>
