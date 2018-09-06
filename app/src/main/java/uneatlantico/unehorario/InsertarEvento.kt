@@ -63,36 +63,38 @@ class InsertarEvento : AppCompatActivity() {
         val value:ContentValues= ContentValues()
         value.put("nombre",nombre.text.toString())
         value.put("duracion",duracion.text.toString())
-        if (fecha_inicio.month<10){
+        val ass1=fecha_inicio.month + 1
+        val ass2=fecha_final.month + 1
+        if (ass1<10){
             if(fecha_inicio.dayOfMonth<10) {
 
-                value.put("fecha_inicio", "" + fecha_inicio.year + "-0" + (fecha_inicio.month+1) + "-0" + fecha_inicio.dayOfMonth)
+                value.put("fecha_inicio", "" + fecha_inicio.year + "-0" + (ass1) + "-0" + fecha_inicio.dayOfMonth)
             }else{
-                value.put("fecha_inicio", "" + fecha_inicio.year + "-0" + (fecha_inicio.month+1) + "-" + fecha_inicio.dayOfMonth)
+                value.put("fecha_inicio", "" + fecha_inicio.year + "-" + (ass1) + "-" + fecha_inicio.dayOfMonth)
             }
         }else{
-            value.put("fecha_inicio",""+fecha_inicio.year+"-"+fecha_inicio.month+"-"+fecha_inicio.dayOfMonth)
+            value.put("fecha_inicio",""+fecha_inicio.year+"-"+ass1+"-"+fecha_inicio.dayOfMonth)
             if(fecha_inicio.dayOfMonth<10) {
 
-                value.put("fecha_inicio", "" + fecha_inicio.year + "-" + (fecha_inicio.month+1) + "-0" + fecha_inicio.dayOfMonth)
+                value.put("fecha_inicio", "" + fecha_inicio.year + "-" + (ass1) + "-0" + fecha_inicio.dayOfMonth)
             }else{
-                value.put("fecha_inicio", "" + fecha_inicio.year + "-" + (fecha_inicio.month+1) + "-" + fecha_inicio.dayOfMonth)
+                value.put("fecha_inicio", "" + fecha_inicio.year + "-" + (ass1) + "-" + fecha_inicio.dayOfMonth)
             }
         }
-        if (fecha_final.month<10){
+        if (ass2 < 10){
             if(fecha_final.dayOfMonth<10) {
 
-                value.put("fecha_final", "" + fecha_final.year + "-0" + (fecha_final.month+1) + "-0" + fecha_final.dayOfMonth)
+                value.put("fecha_final", "" + fecha_final.year + "-0" + (ass2) + "-0" + fecha_final.dayOfMonth)
             }else{
-                value.put("fecha_final", "" + fecha_final.year + "-0" + (fecha_final.month+1) + "-" + fecha_final.dayOfMonth)
+                value.put("fecha_final", "" + fecha_final.year + "-" + (ass2) + "-" + fecha_final.dayOfMonth)
             }
         }else{
-            value.put("fecha_final",""+fecha_final.year+"-"+(fecha_final.month+1)+"-"+fecha_final.dayOfMonth)
+            value.put("fecha_final",""+fecha_final.year+"-"+(ass2)+"-"+fecha_final.dayOfMonth)
             if(fecha_final.dayOfMonth<10) {
 
-                value.put("fecha_final", "" + fecha_final.year + "-" + (fecha_final.month+1) + "-0" + fecha_final.dayOfMonth)
+                value.put("fecha_final", "" + fecha_final.year + "-" + (ass2) + "-0" + fecha_final.dayOfMonth)
             }else{
-                value.put("fecha_final", "" + fecha_final.year + "-" + (fecha_final.month+1) + "-" + fecha_final.dayOfMonth)
+                value.put("fecha_final", "" + fecha_final.year + "-" + (ass2) + "-" + fecha_final.dayOfMonth)
             }
         }
         value.put("tipo_evento",spinnere.selectedItemId)

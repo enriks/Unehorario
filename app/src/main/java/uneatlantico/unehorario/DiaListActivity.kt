@@ -1,5 +1,6 @@
 package uneatlantico.unehorario
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.media.Image
@@ -18,19 +19,18 @@ import android.widget.TextView
 
 import uneatlantico.unehorario.dummy.DummyContent
 import kotlinx.android.synthetic.main.activity_dia_list.*
-import kotlinx.android.synthetic.main.activity_main2.*
-import kotlinx.android.synthetic.main.app_bar_main2.*
 import kotlinx.android.synthetic.main.dia_list_content.view.*
 import kotlinx.android.synthetic.main.dia_list.*
-import kotlinx.android.synthetic.main.nav_header_main2.*
 import objetos.Eventos
 import org.jetbrains.anko.contentView
 import org.jetbrains.anko.image
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.widget.ImageView
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.opaque
 import java.net.URL
 
 
@@ -43,28 +43,6 @@ import java.net.URL
  * item details side-by-side using two vertical panes.
  */
 class DiaListActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        Log.d("click","esta aqui")
-        when (item.itemId) {
-            R.id.nav_add -> {
-                // Handle the camera action
-                Log.d("click","clico")
-            }
-
-
-            R.id.nav_sync->{
-                Log.d("click","clico 2")
-            }
-            R.id.nav_manage -> {
-
-                Log.d("click","clico 3")
-
-            }
-        }
-
-       // drawer_layout.closeDrawer(GravityCompat.START)
-        return true
-    }
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -76,15 +54,14 @@ class DiaListActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     var cont:Context=this
     lateinit var nada: SqliteHandler
 
+    @SuppressLint("NewApi")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d("items",ITEMS.toString())
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dia_list)
         setSupportActionBar(toolbar)
-        var algo=findViewById(R.id.nav_view) as NavigationView
-        var nad2a =algo.getHeaderView(0)
-        algo.setNavigationItemSelectedListener (this)
+        var nad2a =nav_view.getHeaderView(0)
         var usuario:TextView= nad2a.findViewById(R.id.nombre_usuario)
         var correo:TextView= nad2a.findViewById(R.id.correo_usuario)
         var imagn:ImageView= nad2a.findViewById(R.id.imageView)
@@ -97,8 +74,8 @@ class DiaListActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
 
        usuario.setText(Tool.NOMBRE)
        correo.setText(Tool.CORREO)
-        setSupportActionBar(toolbar)
         toolbar.title = title
+        toolbar.setBackgroundColor(Color.TRANSPARENT)
         cont=applicationContext
         nada=SqliteHandler(cont)
         Log.d("contexto",cont.toString())
@@ -120,6 +97,8 @@ class DiaListActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
+
+        nav_view.setNavigationItemSelectedListener(this)
         setupRecyclerView(dia_list)
        // recreate()
     }
@@ -130,8 +109,31 @@ class DiaListActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         return true
     }
 
+    override fun onBackPressed() {
+
+    }
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        Log.d("click","esta aqui")
+        when (item.itemId) {
+            R.id.nav_add -> {
+                // Handle the camera action
+                Log.d("click","clico")
+            }
 
 
+            R.id.nav_sync->{
+                Log.d("click","clico 2")
+            }
+            R.id.nav_manage -> {
+
+                Log.d("click","clico 3")
+
+            }
+        }
+
+        drawer_layout.closeDrawer(GravityCompat.START)
+        return true
+    }
 
     private fun setupRecyclerView(recyclerView: RecyclerView) {
         recyclerView.adapter = SimpleItemRecyclerViewAdapter(this, ITEMS, twoPane)

@@ -44,31 +44,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="uneatlantico.unehorario.DiaListActivity" />
         </activity>
-        <activity
-            android:name=".EditarEvento"
-            android:label="@string/title_activity_editar_evento"
-            android:parentActivityName=".DiaDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="uneatlantico.unehorario.DiaDetailActivity" />
-        </activity>
-        <activity
-            android:name=".EditEvento"
-            android:label="@string/title_activity_edit_evento"
-            android:parentActivityName=".DiaListActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="uneatlantico.unehorario.DiaListActivity" />
-        </activity>
-        <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".Main3Activity"
             android:label="@string/title_activity_main3"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
